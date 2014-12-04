@@ -1,2 +1,4 @@
 .vagrant/
 app/
+.DS_Store
+dockerfiles/docker-wordpress-nginx
