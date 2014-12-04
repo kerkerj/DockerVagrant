@@ -1,0 +1,13 @@
+nginx:
+  build: ./Nginx/
+  ports:
+    - "80:80"
+  links:
+    - nodejs
+nodejs:
+  build: ./Nodejs/
+  command: supervisor server.js
+  volumes:
+    - ./app:/nodeapp
+  ports:
+    - "8080:8080"

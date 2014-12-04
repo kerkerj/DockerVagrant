@@ -1,0 +1,13 @@
+db:
+  image: dockerfile/mongodb
+  ports:
+    - "27017"
+web:
+  build: .
+  command: bundle exec rackup -p 3000
+  volumes:
+    - webapp/:/myapp
+  ports:
+    - "3000:3000"
+  links:
+    - db
