@@ -8,7 +8,7 @@ RUN cd ~ && \
   wget http://nginx.org/keys/nginx_signing.key && \
   apt-key add nginx_signing.key && \
   echo deb http://nginx.org/packages/mainline/ubuntu/ trusty nginx \
-  deb-src http://nginx.org/packages/mainline/ubuntu/ trusty nginx >> /etc/apt/source.list && \
+  deb-src http://nginx.org/packages/mainline/ubuntu/ trusty nginx >> /etc/apt/sources.list && \
   apt-get update && \
   apt-get install -y nginx && \
   echo "daemon off;" >> /etc/nginx/nginx.conf && \
