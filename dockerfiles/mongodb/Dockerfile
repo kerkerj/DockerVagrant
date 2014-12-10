@@ -13,10 +13,12 @@ RUN \
   apt-get update && \
   apt-get install -y mongodb-org && \
   rm -rf /var/lib/apt/lists/* && \
+  mkdir -p /data/db && \
   mkdir -p /data/mongodb && \
-  chown mongodb:mongodb /data/mongodb
+  chown mongodb:mongodb /data/mongodb && \
+  chown mongodb:mongodb /data/db 
 
-ADD ./conf/mongod.conf /etc/mongod.conf
+#ADD ./conf/mongod.conf /etc/mongod.conf
 
 # Define mountable directories.
 VOLUME ["/data/mongodb"]
