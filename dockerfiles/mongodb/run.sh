@@ -2,6 +2,7 @@
 
 printf "This is from Dockerfile: https://registry.hub.docker.com/u/dockerfile/mongodb/ \n"
 
+printf "** Default is smallfiles mode **\n"
 printf "[1] Run mongod: \n\t docker run -d -p 27017:27017  dockerfile/mongodb \n"
 printf "[*2] Run mongod w/ persistent/shared directory: \n\t docker run -d -p 27017:27017 -v /data/mongodb:/data/mongodb  dockerfile/mongodb \n"
 printf "[3] Run mongod w/ HTTP support: \n\t docker run -d -p 27017:27017 -p 28017:28017  dockerfile/mongodb mongod --rest --httpinterface \n"
@@ -31,14 +32,14 @@ sudo docker run -d -p 27017:27017 $image
 ;; 
 
 2)
+sudo docker run -d -p 27017:27017 -v /data/mongodb:/data/mongodb $image mongod --smallfiles
+#read -r -p "small files? [y/N]" res
 
-read -r -p "small files? [y/N]" res
-
-if [[ $res =~ ^([yY][eE][sS]|[yY])$ ]]; then
-	sudo docker run -d -p 27017:27017 -v /data/mongodb:/data/mongodb $image mongod --smallfiles
-else
-	sudo docker run -d -p 27017:27017 -v /data/mongodb:/dada/mongodb $image
-fi
+#if [[ $res =~ ^([yY][eE][sS]|[yY])$ ]]; then
+#	sudo docker run -d -p 27017:27017 -v /data/mongodb:/data/mongodb $image mongod --smallfiles
+#else
+#	sudo docker run -d -p 27017:27017 -v /data/mongodb:/data/mongodb $image
+#fi
 
 ;; 
 
