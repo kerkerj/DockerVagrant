@@ -1,19 +1,20 @@
 # For Nodejs webapp
 
 FROM kerkerj:nodejs
-MAINTAINER Jerry Huang (jerry.huang@livebricks.com)
+MAINTAINER Jerry Huang (jerry54010@gmail.com)
 
 # basic node command tool
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
-  npm install -g nodemon mocha && \
+  npm install -g supervisor mocha && \
   mkdir /webapp
 
 # Sample server
-ADD ./AutoLog/ /webapp/AutoLog/
-WORKDIR /webapp/AutoLog/
+ADD ./NodejsTestApp/ /webapp
+WORKDIR /webapp
 RUN npm install
 
-ENV DEBUG *
+ENV DEBUG TEST
+ENV MONGODB_IP mongodb
 EXPOSE 8080
 
-CMD ["nodemon", "/webapp/AutoLog/bin/server.js"]
+CMD ["supervisor", "/webapp/bin/server.js"]
