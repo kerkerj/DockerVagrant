@@ -32,7 +32,7 @@ sudo docker run -d -p 27017:27017 $image
 ;; 
 
 2)
-sudo docker run -d -p 27017:27017 -v /data/mongodb:/data/mongodb --name mongodb $image mongod --smallfiles 
+sudo docker run -d -p 27017:27017 -v /data/mongodb:/data/db --name mongodb $image mongod --smallfiles 
 #read -r -p "small files? [y/N]" res
 
 #if [[ $res =~ ^([yY][eE][sS]|[yY])$ ]]; then
