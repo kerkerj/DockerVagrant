@@ -4,7 +4,7 @@ printf "This is from Dockerfile: https://registry.hub.docker.com/u/dockerfile/mo
 
 printf "** Default is smallfiles mode **\n"
 printf "[1] Run mongod: \n\t docker run -d -p 27017:27017  dockerfile/mongodb \n"
-printf "[*2] Run mongod w/ persistent/shared directory: \n\t docker run -d -p 27017:27017 -v /data/mongodb:/data/mongodb  dockerfile/mongodb \n"
+printf "[*2] Run mongod w/ persistent/shared directory: \n\t docker run -d -p 27017:27017 -v /data/mongodb:/data/db  dockerfile/mongodb \n"
 printf "[3] Run mongod w/ HTTP support: \n\t docker run -d -p 27017:27017 -p 28017:28017  dockerfile/mongodb mongod --rest --httpinterface \n"
 printf "[4] Run mongod w/ Smaller default file size: \n\t docker run -d -p 27017:27017  dockerfile/mongodb mongod --smallfiles \n"
 printf "[5] Run mongo: \n\t docker run -it --rm --link mongodb:mongodb dockerfile/mongodb bash -c 'mongo --host mongodb \n"
